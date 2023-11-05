@@ -1,6 +1,6 @@
 // Replace 'FOLDER_ID' with the actual ID of your public Google Drive folder.
 const folderId = '1snDaNtlDD4fSds5I0pLyRPgb7ew6P3ut';
-const apiUrl = `https://www.googleapis.com/drive/v3/files?q='${folderId}'+in+parents&key=AIzaSyC6eDdkRcHK0CzkS8zVY5fdDHdKiKdYYzk`;
+const apiUrl = `https://www.googleapis.com/drive/v3/files?q='${folderId}'+in+parents&key=AIzaSyAx631b5GbRMjYsXbr3qv8Os1KMfcPHc1w`;
 
 // Replace 'API_KEY' with your Google Drive API key.
 fetch(apiUrl)
