@@ -4,12 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Google Drive Image Carousel</title>
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="carousel-container">
         <div id="image-carousel" class="carousel-slide"></div>
     </div>
-    <script src="script.js"></script>
+    <script>
+        const folderId = '1snDaNtlDD4fSds5I0pLyRPgb7ew6P3ut';  // Replace with the actual Google Drive folder ID.
+        const apiKey = 'AIzaSyAx631b5GbRMjYsXbr3qv8Os1KMfcPHc1w';  // Replace with your Google Drive API key.
+        const apiUrl = `https://www.googleapis.com/drive/v3/files?q='${folderId}'+in+parents&key=${apiKey}`;
+
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                const images = data.files.filter(file => file.mimeType.startsWith('image/'));
+                const carousel = document.getElementById('image-carousel');
+
+                images.forEach(image => {
+                    const imageUrl = `https://drive.google.com/uc?id=${image.id}`;
+                    const img = document.createElement('img');
+                    img.src = imageUrl;
+                    carousel.appendChild(img);
+                });
+
+                // Initialize a simple image carousel (you can use a more advanced library).
+                let currentIndex = 0;
+                const imagesCount = images.length;
+
+                setInterval(() => {
+                    currentIndex = (currentIndex + 1) % imagesCount;
+                    carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+                }, 3000); // Change image every 3 seconds
+            })
+            .catch(error => console.error('Error:', error));
+    </script>
 </body>
 </html>
