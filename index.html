@@ -10,9 +10,9 @@
         <div id="image-carousel" class="carousel-slide"></div>
     </div>
     <script>
-        const folderId = '1snDaNtlDD4fSds5I0pLyRPgb7ew6P3ut';  // Replace with the actual Google Drive folder ID.
-        const apiKey = 'AIzaSyAx631b5GbRMjYsXbr3qv8Os1KMfcPHc1w';  // Replace with your Google Drive API key.
-        const apiUrl = `https://www.googleapis.com/drive/v3/files?q='${folderId}'+in+parents&key=${apiKey}`;
+        const folderId = 1snDaNtlDD4fSds5I0pLyRPgb7ew6P3ut;  // Replace with the actual Google Drive folder ID.
+        const apiKey = AIzaSyAx631b5GbRMjYsXbr3qv8Os1KMfcPHc1w;  // Replace with your Google Drive API key.
+        const apiUrl = https://www.googleapis.com/drive/v3/files?q='${folderId}'+in+parents&key=${apiKey};
 
         fetch(apiUrl)
             .then(response => response.json())
